@@ -10,4 +10,3 @@ const controller = require('../controllers/productControllers')
 
 module.exports = router;
 
-

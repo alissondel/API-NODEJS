@@ -3,15 +3,22 @@
 //Importações
 const express = require('express')
 const bodyParser = require('body-parser')
+const mongoose = require('mongoose')
 
 const app = express()
+
+//Conecta ao mongodb
+mongoose.connect('mongodb+srv://alissondelatim:aXEy72jfRVZNfq@cluster0.qga0e.mongodb.net/myFirstDatabase?retryWrites=true&w=majority');
+
+//Carrega os Models
+const Product = require('./models/product')
 
 //Carrega as rotas
 const indexRoutes = require('./routes/index');
 const productRoutes = require('./routes/product')
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use('/', indexRoutes);
 app.use('/products', productRoutes)

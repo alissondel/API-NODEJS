@@ -1,9 +1,19 @@
 'use strict';
 
+//Importação da model com mongoose(mongodb)
+const mongoose = require('mongoose')
+const Product = mongoose.model('Product')
+
 exports.post = (req, res, next) => {
     //status(201) - Indica que a requisição foi bem sucedida e que um novo recurso foi criado.
-    res.status(201).send(req.body);
-}
+    var product = new Product(); //instancia na requisição
+    product.title = req.body.title;
+    product.save().then(x => {
+        res.status(201).send({message: 'Produto cadastrado com sucesso!'});
+    }).catch(e => {
+        res.status(400).send({message: 'Falha ao cadastrar o produto'. data.e});
+    });
+};
 
 exports.put = (req, res, next) => {
 const id = req.params.id;
