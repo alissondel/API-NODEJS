@@ -4,14 +4,24 @@
 const mongoose = require('mongoose')
 const Product = mongoose.model('Product')
 
+exports.get = (req, res, next) => {
+    //Listando os produtos cadastrados
+    Product
+    .find({})
+    .then(data => {
+        res.status(200).send(data);
+    }).catch(e => {
+        res.status(400).send(e);
+    });
+}
+
 exports.post = (req, res, next) => {
     //status(201) - Indica que a requisição foi bem sucedida e que um novo recurso foi criado.
-    var product = new Product(); //instancia na requisição
-    product.title = req.body.title;
+    var product = new Product(req.body); //instancia na requisição
     product.save().then(x => {
         res.status(201).send({message: 'Produto cadastrado com sucesso!'});
     }).catch(e => {
-        res.status(400).send({message: 'Falha ao cadastrar o produto'. data.e});
+        res.status(400).send({message: 'Falha ao cadastrar o produto', data: e});
     });
 };
 

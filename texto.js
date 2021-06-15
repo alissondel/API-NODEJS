@@ -4,10 +4,19 @@
 3- npm install body-parser --save
 4-npm install mongoose --save
 
-Senha do MongoDB: aXEy72jfRVZNfq
-
-String de connection =
+String de Cluster Connection =
+Senha do MongoDB Cluster: aXEy72jfRVZNfQ
 mongodb+srv://alissondelatim:<password>@cluster0.qga0e.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
-*/
 
-//Parei no video balta.io - Criando APIs com NodeJs - Aula 16: Criando um Produto
+//Parei no video balta.io - Criando APIs com NodeJs - Aula 17: Listando os Produtos
+
+Cadastro de um produto no postman
+{
+    "title": "Mouse Razer",
+    "slug": "Mouse-Razer",
+    "description": "mouse razer 1000dpi",
+    "price": "1200",
+    "active": true,
+    "tags":["informatica", "mouse", "gamer"]
+}
+*/
