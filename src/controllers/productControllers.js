@@ -12,10 +12,10 @@ const ValidationContract = require('../validators/fluent-validator')
 exports.get = async(req, res, next) => {
     try {
         var data = await repository.get();
-        res.status(200).send(data)
+        res.status(200).send(data);
     } catch (e) {
         res.status(500).send({
-            message: 'Falha ao processar sua requisição - (Listar Produto)'
+            message: 'Falha ao processar sua requisição'
         });
     }
 }
@@ -27,10 +27,11 @@ exports.getBySlug = async(req, res, next) => {
         res.status(200).send(data);
     } catch (e) {
         res.status(500).send({
-            message: 'Falha ao processar sua requisição (Listar Produto c/ "slug")'
+            message: 'Falha ao processar sua requisição'
         });
     }
 }
+
 
 //Listando os ID dos produtos cadastrados, pegando do banco
 exports.getById = async(req, res, next) => {
@@ -39,7 +40,7 @@ exports.getById = async(req, res, next) => {
         res.status(200).send(data);
     } catch (e) {
         res.status(500).send({
-            message: 'Falha ao processar sua requisição (Listar Produto c/ "id")'
+            message: 'Falha ao processar sua requisição'
         });
     }
 }
@@ -51,7 +52,7 @@ exports.getByTag = async(req, res, next) => {
         res.status(200).send(data);
     } catch (e) {
         res.status(500).send({
-            message: 'Falha ao processar sua requisição (Listar Produto c/ "tag")'
+            message: 'Falha ao processar sua requisição'
         });
     }
 }
@@ -80,7 +81,7 @@ exports.post = async(req, res, next) => {
             message: 'Falha ao processar sua requisição'
         });
     }
-}
+};
 
 //Atualizando o produto, pegando do banco
 exports.put = async(req, res, next) => {

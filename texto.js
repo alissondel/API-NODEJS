@@ -8,7 +8,7 @@ String de Cluster Connection =
 Senha do MongoDB Cluster: aXEy72jfRVZNfQ
 mongodb+srv://alissondelatim:<password>@cluster0.qga0e.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
 
-//Criando APIs com NodeJs - Aula 22: Excluindo um produto
+//Criando APIs com NodeJs - Aula 25: Async/Await
 
 Cadastro de um produto no postman
 {
