@@ -15,7 +15,8 @@ exports.get = async(req, res, next) => {
         res.status(200).send(data);
     } catch (e) {
         res.status(500).send({
-            message: 'Falha ao processar sua requisição'
+            message: 'Falha ao processar sua requisição.',
+            error: e.message
         });
     }
 }
@@ -27,7 +28,8 @@ exports.getBySlug = async(req, res, next) => {
         res.status(200).send(data);
     } catch (e) {
         res.status(500).send({
-            message: 'Falha ao processar sua requisição'
+            message: 'Falha ao processar sua requisição',
+            error: e.message
         });
     }
 }
@@ -40,7 +42,8 @@ exports.getById = async(req, res, next) => {
         res.status(200).send(data);
     } catch (e) {
         res.status(500).send({
-            message: 'Falha ao processar sua requisição'
+            message: 'Falha ao processar sua requisição',
+            error: e.message
         });
     }
 }
@@ -52,7 +55,8 @@ exports.getByTag = async(req, res, next) => {
         res.status(200).send(data);
     } catch (e) {
         res.status(500).send({
-            message: 'Falha ao processar sua requisição'
+            message: 'Falha ao processar sua requisição',
+            error: e.message
         });
     }
 }
@@ -71,15 +75,16 @@ exports.post = async(req, res, next) => {
     }
 
     try{
+        
         await repository.create(req.body)
-        res.staus(201).send({
+        res.status(201).send({
             message: 'Produto cadastado com sucesso!'
         });
     } catch (e) {
-        console.log(e);
         res.status(500).send({
-            message: 'Falha ao processar sua requisição'
-        });
+            message: 'Falha ao processar sua requisição. ',
+            error: e.message
+        }); 
     }
 };
 
@@ -92,7 +97,8 @@ exports.put = async(req, res, next) => {
         });
     } catch (e) {
         res.status(500).send({
-            message: 'Falha ao processar sua requisição'
+            message: 'Falha ao processar sua requisição',
+            error: e.message
         });
     }
 };
@@ -100,13 +106,16 @@ exports.put = async(req, res, next) => {
 //Deletando o produto, pegando do banco
 exports.delete = async(req, res, next) => {
     try {
+
+        if(!req.body.id || req.body.id == "") return res.status(400).send({error: "parametro invalido"})      
         await repository.delete(req.body.id)
         res.status(200).send({
             message: 'Produto removido com sucesso!'
         });
     } catch (e) {
         res.status(500).send({
-            message: 'Falha ao processar sua requisição'
+            message: 'Falha ao processar sua requisição. ',
+            error: e.message
         });
     }
 };

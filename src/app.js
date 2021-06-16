@@ -8,7 +8,10 @@ const mongoose = require('mongoose')
 const app = express()
 
 /* (Conecta ao mongodb) mongoose.connect('mongodb://localhost/db_name');*/
-mongoose.connect('mongodb://localhost:27017/apinode', { useNewUrlParser: true, seUnifiedTopology: true});
+mongoose.connect('mongodb://localhost:27017/apinode', {
+   useNewUrlParser: true,
+   useUnifiedTopology: true
+ })
 
 //Carrega os Models
 const Product = require('./models/product')

@@ -50,12 +50,13 @@ exports.update = async(id, data) => {
                 title: data.title,
                 description: data.description,
                 price: data.price,
-                slug: data.slug
+                slug: data.slug,
+                tags: data.tags
             }
         });
 }
 
 exports.delete = async(id) => {
     await Product
-        .findOneAndRemove(id);
+        .findOneAndRemove({_id: id});
 }

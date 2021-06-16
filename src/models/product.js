@@ -8,13 +8,13 @@ const schema = new Schema({
     title: {
         type: String,
         required: true,
-        trim: true //trim = Ele remove o espaço antes da string no titulo
-    }, 
+        trim: true
+    },
     slug: {
-        type: String, 
-        required: [true, 'O slug é obrigatorio'],
+        type: String,
+        required: [true, 'O slug é obrigatório'],
         trim: true,
-        index: true, // Ex:. Cadeira Gamer = cadeira-gamer
+        index: true,
         unique: true
     },
     description: {
