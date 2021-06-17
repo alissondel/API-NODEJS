@@ -3,9 +3,8 @@
 //Importação da model com mongoose(mongodb)
 const mongoose = require('mongoose')
 const Product = mongoose.model('Product')
-const repository = require('../repositories/product-repository')
 
-//importando o validator
+const repository = require('../repositories/product-repository')
 const ValidationContract = require('../validators/fluent-validator')
 
 //Listando os produtos cadastrados, pegando do banco

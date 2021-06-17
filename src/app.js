@@ -15,16 +15,22 @@ mongoose.connect('mongodb://localhost:27017/apinode', {
 
 //Carrega os Models
 const Product = require('./models/product')
+const Customer = require('./models/customer')
+const Order = require('./models/order')
 
 //Carrega as rotas
 const indexRoutes = require('./routes/index');
 const productRoutes = require('./routes/product')
+const customerRoutes = require('./routes/customer')
+const orderRoutes = require('./routes/order')
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use('/', indexRoutes);
 app.use('/products', productRoutes)
+app.use('/customers', customerRoutes )
+app.use('/orders', orderRoutes)
 
 module.exports = app
 
